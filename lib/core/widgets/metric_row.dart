@@ -77,4 +77,35 @@ class AppCard extends StatelessWidget{
       child: card,
     );
   }
+
+}
+
+class PillBadge extends StatelessWidget {
+  final String text;
+  final Color color;
+  final Color? textColor;
+
+  const PillBadge({
+    super.key,
+    required this.text,
+    this.color = AppColors.primary,
+    this.textColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.18),
+        borderRadius: BorderRadius.circular(999),
+      ),
+      child: Text(
+        text.toUpperCase(),
+        style: AppTextStyles.labelUppercaseSmall.copyWith(
+          color: textColor ?? color,
+        ),
+      ),
+    );
+  }
 }
